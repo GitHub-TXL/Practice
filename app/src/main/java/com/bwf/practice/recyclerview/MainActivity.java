@@ -3,6 +3,8 @@ package com.bwf.practice.recyclerview;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -16,6 +18,8 @@ import com.bwf.practice.eyes.KaKaXi;
 import com.bwf.practice.eyes.Quan;
 import com.bwf.practice.eyes.Zhi;
 import com.bwf.practice.eyes.Zuo;
+import com.cjj.refresh.BeautifulRefreshLayout;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,18 +32,33 @@ public class MainActivity extends AppCompatActivity {
             R.mipmap.a5, R.mipmap.a6, R.mipmap.a7, R.mipmap.a8,
             R.mipmap.a9, R.mipmap.a10, R.mipmap.a11,
     };
-
+    private RecyclerViewAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Fresco.initialize(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BeautifulRefreshLayout beautifulRefreshLayout = (BeautifulRefreshLayout) findViewById(R.id.refresh);
+        beautifulRefreshLayout.setBuautifulRefreshListener(new BeautifulRefreshLayout.BuautifulRefreshListener() {
+            @Override
+            public void onRefresh(final BeautifulRefreshLayout refreshLayout) {
+                refreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        refreshLayout.finishRefreshing();
+                    }
+                }, 3000);
+            }
+        });
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
+
         //设置layoutManager
         recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
         //设置adapter
         initData();
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(products);
-        recyclerView.setAdapter(adapter);
+        adapter = new RecyclerViewAdapter(products);
+//        recyclerView.setAdapter(adapter);
+        setupRecyclerView(recyclerView);
         //设置item之间的间隔
         SpacesItemDecoration decoration = new SpacesItemDecoration(16);
         recyclerView.addItemDecoration(decoration);
@@ -86,7 +105,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
+    private void setupRecyclerView(RecyclerView recyclerView) {
+//        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
+        recyclerView.setAdapter(adapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
     private void initData() {
         products = new ArrayList<>();
         for (int i = 0; i < images.length; i++) {
