@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         refreshLayout.finishRefreshing();
                     }
-                }, 3000);
+                }, 6000);
             }
         });
         recyclerView = (RecyclerView) findViewById(R.id.recycler);

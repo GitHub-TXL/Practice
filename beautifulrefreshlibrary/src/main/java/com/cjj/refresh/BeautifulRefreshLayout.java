@@ -54,7 +54,7 @@ public class BeautifulRefreshLayout extends RefreshLayout {
         final ImageView meishi = (ImageView) headView.findViewById(R.id.meishi);
         final TextView tv_tip = (TextView) headView.findViewById(R.id.tv_tip);
         final SimpleDraweeView draweeView = (SimpleDraweeView) headView.findViewById(R.id.text_loading);
-        Uri uri = Uri.parse("res://cjj/" + R.drawable.xly);
+        Uri uri = Uri.parse("res://cjj/" + R.drawable.zhuozhu);
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(uri)
         .build();
 
