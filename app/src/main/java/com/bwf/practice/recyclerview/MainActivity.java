@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         refreshLayout.finishRefreshing();
-
                     }
                 }, 6000);
             }
