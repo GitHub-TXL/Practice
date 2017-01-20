@@ -76,7 +76,7 @@ public class FragmentOne extends Fragment{
                         startActivity(new Intent(getActivity(), BanL.class));
                         break;
                     case R.mipmap.a3:
-                        startActivity(new Intent(getActivity(), BanX.class));
+                        startActivity(new Intent(getActivity(), ItemDecorationActivity.class));
                         break;
                     case R.mipmap.a4:
                         startActivity(new Intent(getActivity(), KaKaXi.class));

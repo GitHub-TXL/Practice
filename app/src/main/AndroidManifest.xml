@@ -27,6 +27,7 @@
         <activity android:name=".eyes.Quan"/>
         <activity android:name=".eyes.Zhi"/>
         <activity android:name=".eyes.Zuo"/>
+        <activity android:name=".ItemDecorationActivity"/>
     </application>
 
 </manifest>
