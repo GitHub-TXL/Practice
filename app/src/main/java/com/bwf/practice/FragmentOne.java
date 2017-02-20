@@ -19,6 +19,8 @@ import com.bwf.practice.eyes.KaKaXi;
 import com.bwf.practice.eyes.Quan;
 import com.bwf.practice.eyes.Zhi;
 import com.bwf.practice.eyes.Zuo;
+import com.bwf.practice.glidetest.ChActivity;
+import com.bwf.practice.glidetest.GlideExample;
 import com.bwf.practice.recyclerview.Product;
 import com.bwf.practice.recyclerview.RecyclerViewAdapter;
 import com.bwf.practice.recyclerview.SpacesItemDecoration;
@@ -97,10 +99,10 @@ public class FragmentOne extends Fragment{
                         startActivity(new Intent(getActivity(), VideoPlayActivity.class));
                         break;
                     case R.mipmap.a10:
-                        startActivity(new Intent(getActivity(), VideoPlayActivity.class));
+//                        startActivity(new Intent(getActivity(), ChActivity.class));
                         break;
                     case R.mipmap.a11:
-                        startActivity(new Intent(getActivity(), VideoPlayActivity.class));
+                        startActivity(new Intent(getActivity(), GlideExample.class));
                         break;
                 }
 

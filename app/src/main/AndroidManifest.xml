@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/img_5"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -28,6 +28,11 @@
         <activity android:name=".eyes.Zhi"/>
         <activity android:name=".eyes.Zuo"/>
         <activity android:name=".ItemDecorationActivity"/>
+        <activity android:name=".glidetest.GlideExample"/>
+        <activity android:name=".glidetest.ChActivity"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
     </application>
 
 </manifest>
